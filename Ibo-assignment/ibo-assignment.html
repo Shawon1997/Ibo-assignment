@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IBO</title>
+</head>
+<body>
+  <h1>IBO-Assignment</h1>
+  <h3>Please Inspect Then You can see the result</h3>
+</body>
+</html>
+<script>
+  
+const listOfProducts = [{
+    productName: "TV",
+    quantity: 10,
+    description: "television"
+  },
+  {
+    productName: "AC",
+    quantity: 5,
+    description: "air conditioner"
+  },
+  {
+    productName: "TV",
+    quantity: 10,
+    description: "television"
+  },
+  {
+    productName: "AC",
+    quantity: 5,
+    description: "air conditioner"
+  },
+  {
+    productName: "FAN",
+    quantity: 10,
+    description: "Ceiling Fan"
+  }
+];
+
+
+const getUniqueProductCount=(arr)=>{
+    let obj={}
+  for(let i=0;i<arr.length;i++){
+    obj[arr[i].productName]=(obj[arr[i].productName]||0)+1
+  }
+  
+ return(obj)
+}
+
+let ans=getUniqueProductCount(listOfProducts)
+console.log(ans)
+
+//############################################################
+
+const getUniquePrducts=(arr)=>{
+     let uniquearr=[]
+    for(let i=0;i<arr.length;i++){
+      let a=true;
+      for(let j=0;j<uniquearr.length;j++){
+        if(arr[i].productName==uniquearr[j].productName){
+          uniquearr[j].quantity+=arr[i].quantity
+          a=false;
+          break;
+        }
+      }
+      if(a){
+        uniquearr.push(arr[i])
+      }
+    }
+
+     return uniquearr
+}
+
+const uniquearr=getUniquePrducts(listOfProducts)
+console.log(uniquearr)
+
+</script>
