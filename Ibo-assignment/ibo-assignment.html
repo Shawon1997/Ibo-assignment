@@ -8,6 +8,8 @@
 </head>
 <body>
   <h1>IBO-Assignment</h1>
+  <button onclick="getUniqueProductCount()">GetUniqueProductCount</button>
+  <button onclick="getUniquePrducts()">GetUniquePrducts</button>
   <h3>Please Inspect Then You can see the result</h3>
 </body>
 </html>
@@ -41,40 +43,41 @@ const listOfProducts = [{
 ];
 
 
-const getUniqueProductCount=(arr)=>{
+const getUniqueProductCount=()=>{
     let obj={}
-  for(let i=0;i<arr.length;i++){
-    obj[arr[i].productName]=(obj[arr[i].productName]||0)+1
+  for(let i=0;i<listOfProducts.length;i++){
+    obj[listOfProducts[i].productName]=(obj[listOfProducts[i].productName]||0)+1
   }
   
- return(obj)
+  console.log(obj)
 }
 
-let ans=getUniqueProductCount(listOfProducts)
-console.log(ans)
+//let ans=getUniqueProductCount(listOfProducts)
+//console.log(ans)
 
 //############################################################
 
-const getUniquePrducts=(arr)=>{
+const getUniquePrducts=()=>{
      let uniquearr=[]
-    for(let i=0;i<arr.length;i++){
+    for(let i=0;i<listOfProducts.length;i++){
       let a=true;
       for(let j=0;j<uniquearr.length;j++){
-        if(arr[i].productName==uniquearr[j].productName){
-          uniquearr[j].quantity+=arr[i].quantity
+        if(listOfProducts[i].productName==uniquearr[j].productName){
+          uniquearr[j].quantity+=listOfProducts[i].quantity
           a=false;
           break;
         }
       }
       if(a){
-        uniquearr.push(arr[i])
+        uniquearr.push(listOfProducts[i])
       }
     }
+   
 
-     return uniquearr
+    console.log(uniquearr)
 }
 
-const uniquearr=getUniquePrducts(listOfProducts)
-console.log(uniquearr)
+//const uniquearr=getUniquePrducts(listOfProducts)
+//console.log(uniquearr)
 
 </script>
